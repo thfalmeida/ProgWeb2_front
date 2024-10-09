@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './Auth/Login';
 import ItemList from './ClientePage/ClienteHome';
+import FuncionarioPage from './FuncionarioPage/FuncionarioHome'
 
 // Função para verificar se o usuário está autenticado (se o token existe)
 const isAuthenticated = () => {
@@ -27,6 +28,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <ItemList />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/servicos"
+          element={
+            <PrivateRoute>
+              <FuncionarioPage />
             </PrivateRoute>
           }
         />

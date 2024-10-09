@@ -31,7 +31,10 @@ const Login = () => {
       localStorage.setItem('token', token);
 
       // Redireciona o usuário para a página de itens
-      navigate('/items');
+      if(response.data.role == 'CLIENTE')
+        navigate('/items');
+      if(response.data.role == 'FUNCIONARIO')
+        navigate('/servicos');
     } catch (err) {
       setError('Login ou senha incorretos');
     } finally {
